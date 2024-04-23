@@ -6,11 +6,21 @@ title: Accounts
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Endpoint URLs
+| Network | URL   
+|---|---|
+| Mainnet | https://api.btrscan.org/scan/api
+| Testnet | https://api-testnet.bitlayer.org/scan/api
+
+
 ## Get BTC Balance for a single address
 Returns the BTC balance of a given address.
 
 ```json
-https://api.btrscan.org/scan/api?module=account&action=balance&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&tag=latest
+https://api.btrscan.org/scan/api
+?module=account
+&action=balance
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
 ```
 
 <Tabs>
@@ -20,17 +30,19 @@ https://api.btrscan.org/scan/api?module=account&action=balance&address=0x6630fce
 | Parameter | Description                                            |
 |---|---|
 | address | the `string` representing the address to check balance |
-| tag     | the `string` representing the pre-defined block parameter: `earliest`, `pending`, or `latest` |
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      "status": "1",
-      "message": "OK",
-      "result": "40891626854930000000000"
-      
 
+  Sample Response
+
+  ```json
+  {
+    "status": "1",
+    "message": "OK",
+    "result": "40891626854930000000000"
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -38,7 +50,10 @@ https://api.btrscan.org/scan/api?module=account&action=balance&address=0x6630fce
 Returns the balance of the accounts from a list of addresses.
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=balancemulti&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&tag=latest
+https://api.btrscan.com/scan/api
+?module=account
+&action=balancemulti
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
 ```
 
 <Tabs>
@@ -48,16 +63,18 @@ https://api.btrscan.com/scan/api?module=account&action=balancemulti&address=0x66
 | Parameter | Description                                            |
 |---|---|
 | address | the `string` representing the address to check balance,separated by `,` up to 20 addresses in a single batch |
-| tag     | the `string` representing the pre-defined block parameter: `earliest`, `pending`, or `latest` |
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-     "status":"1",
-     "message":"OK",
-     "result":
+  Sample Response
 
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -72,7 +89,13 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlist&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&startblock=0&endblock=99999999&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlist
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&startblock=0
+&endblock=99999999
+&sort=asc
 ```
 
 or
@@ -82,7 +105,15 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlistinternal&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&startblock=0&endblock=2702578&page=1&offset=10&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlist
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&startblock=0
+&endblock=99999999
+&page=1
+&offset=10
+&sort=asc
 ```
 
 <Tabs>
@@ -121,7 +152,13 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlistinternal&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&startblock=0&endblock=2702578&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlistinternal
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&startblock=0
+&endblock=2702578
+&sort=asc
 ```
 
 or
@@ -131,7 +168,15 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlistinternal&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534&startblock=0&endblock=2702578&page=1&offset=10&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlistinternal
+&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&startblock=0
+&endblock=2702578
+&page=1
+&offset=10
+&sort=asc
 ```
 
 <Tabs>
@@ -169,7 +214,10 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlistinternal&txhash=0x211beec218f9a19ba3acb440ecacbcd7d5bb1dfad7f591e24ffc999efb7f9d69
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlistinternal
+&txhash=0x211beec218f9a19ba3acb440ecacbcd7d5bb1dfad7f591e24ffc999efb7f9d69
 ```
 
 <Tabs>
@@ -202,7 +250,14 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=txlistinternal&startblock=0&endblock=2702578&page=1&offset=10&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=txlistinternal
+&startblock=0
+&endblock=2702578
+&page=1
+&offset=10
+&sort=asc
 ```
 
 <Tabs>
@@ -240,7 +295,13 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokentx&address=0xab40fe1dae842b209599269b8dafb0c54a743438&startblock=0&endblock=999999999&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokentx
+&address=0xab40fe1dae842b209599269b8dafb0c54a743438
+&startblock=0
+&endblock=999999999
+&sort=asc
 ```
 
 or
@@ -250,7 +311,13 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokentx&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438&page=1&offset=100&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokentx
+&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438
+&page=1
+&offset=100
+&sort=asc
 ```
 
 or
@@ -260,7 +327,14 @@ or
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokentx&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438&address=0xab40fe1dae842b209599269b8dafb0c54a743438&page=1&offset=100&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokentx
+&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438
+&address=0xab40fe1dae842b209599269b8dafb0c54a743438
+&page=1
+&offset=100
+&sort=asc
 ```
 
 <Tabs>
@@ -299,7 +373,13 @@ Returns up to a maximum of the last 10000 transactions only
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokennfttx&address=0x6975be450864c02b4613023c2152ee0743572325&startblock=0&endblock=999999999&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokennfttx
+&address=0x6975be450864c02b4613023c2152ee0743572325
+&startblock=0
+&endblock=999999999
+&sort=asc
 ```
 
 or
@@ -309,7 +389,13 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&page=1&offset=100&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokennfttx
+&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d
+&page=1
+&offset=100
+&sort=asc
 ```
 
 or
@@ -319,7 +405,14 @@ or
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&address=0x6975be450864c02b4613023c2152ee0743572325&page=1&offset=100&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=tokennfttx
+&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d
+&address=0x6975be450864c02b4613023c2152ee0743572325
+&page=1
+&offset=100
+&sort=asc
 ```
 
 <Tabs>
@@ -351,7 +444,10 @@ https://api.btrscan.com/scan/api?module=account&action=tokennfttx&contractaddres
 Returns the list of blocks validated by an address.
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokennfttx&address=0x6975be450864c02b4613023c2152ee0743572325&startblock=0&endblock=999999999&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=getminedblocks
+&blocktype=blocks
 ```
 
 or
@@ -361,7 +457,12 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 :::
 
 ```json
-https://api.btrscan.com/scan/api?module=account&action=tokennfttx&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d&page=1&offset=100&sort=asc
+https://api.btrscan.com/scan/api
+?module=account
+&action=getminedblocks
+&blocktype=blocks
+&page=1
+&offset=100
 ```
 
 
@@ -371,7 +472,6 @@ https://api.btrscan.com/scan/api?module=account&action=tokennfttx&contractaddres
 
 | Parameter | Description                                            |
 |---|---|
-| address | the `string` representing the address to check balance |
 | blocktype | the `string` pre-defined block type, either `blocks` for canonical blocks or `uncles` for uncle blocks only |
 | page | the `integer` page number, if pagination is enabled |
 | offset | the number of transactions displayed per page |
