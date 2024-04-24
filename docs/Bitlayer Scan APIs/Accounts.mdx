@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 ## Endpoint URLs
 | Network | URL   
 |---|---|
-| Mainnet | https://api.btrscan.org/scan/api
+| Mainnet | https://api.btrscan.com/scan/api
 | Testnet | https://api-testnet.bitlayer.org/scan/api
 
 
@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 Returns the BTC balance of a given address.
 
 ```json
-https://api.btrscan.org/scan/api
+https://api.btrscan.com/scan/api
 ?module=account
 &action=balance
 &address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
@@ -40,7 +40,7 @@ https://api.btrscan.org/scan/api
   {
     "status": "1",
     "message": "OK",
-    "result": "40891626854930000000000"
+    "result": "0"
   }
   ```
   </TabItem>
@@ -72,7 +72,12 @@ https://api.btrscan.com/scan/api
   {  
     "status":"1",
     "message":"OK",
-    "result":
+    "result":[
+      {
+        "account": "0x6630fcee2a4822f2df842a61d69dc4061bcaa534",
+        "balance": "2017033397873591466"
+      }
+    ]
   }
   ```
   </TabItem>
@@ -132,11 +137,43 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      (Returned 'isError' values: 0=No Error, 1=Got Error)
-      
 
+  Sample Response
+
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+        "blockNumber": "370807",
+        "timeStamp": "1708246885",
+        "hash": "0xc962abb3de29bd52443df3533c41da932d3e1988ee3ec9d28d728e91d64f835f",
+        "nonce": "161",
+        "transactionIndex": "0",
+        "value": "50000000000000000",
+        "gas": "21000",
+        "gasPrice": "150000007",
+        "txreceipt_status": "1",
+        "gasUsed": "21000"
+        },
+        {
+        "blockNumber": "370950",
+        "timeStamp": "1708247314",
+        "hash": "0x5870187bfb98d9925bb95bc56beb987de16002ea909211378fea38024f394511",
+        "nonce": "0",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "695036",
+        "gasPrice": "100000007",
+        "txreceipt_status": "1",
+        "gasUsed": "688405",
+        "methodId": "0x60806040",
+        "functionName": ""
+      }
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -155,7 +192,7 @@ Returns up to a maximum of the last 10000 transactions only
 https://api.btrscan.com/scan/api
 ?module=account
 &action=txlistinternal
-&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&address=0xbfc3695e6a8106d5ca6ab6aa5048f2566eeccaba
 &startblock=0
 &endblock=2702578
 &sort=asc
@@ -171,7 +208,7 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 https://api.btrscan.com/scan/api
 ?module=account
 &action=txlistinternal
-&address=0x6630fcee2a4822f2df842a61d69dc4061bcaa534
+&address=0xbfc3695e6a8106d5ca6ab6aa5048f2566eeccaba
 &startblock=0
 &endblock=2702578
 &page=1
@@ -195,11 +232,47 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      (Returned 'isError' values: 0=No Error, 1=Got Error)
-      
+  
+  Sample Response
 
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+      "blockNumber": "391661",
+      "timeStamp": "1713451612",
+      "hash": "0x9fce957b5e038bed659f86dbc68c02c66fc090c8635025415ddbc2818ff6178b",
+      "transactionIndex": "0",
+      "value": "0",
+      "gas": "36002",
+      "txreceipt_status": "1",
+      "gasUsed": "32721"
+      },
+      {
+        "blockNumber": "391807",
+        "timeStamp": "1713452050",
+        "hash": "0x6119211a19feed70511fb50ebaa6bae321c3dafec7acc9e6eb1f887774dea6d2",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "36002",
+        "txreceipt_status": "1",
+        "gasUsed": "32733"
+      },
+      {
+        "blockNumber": "407184",
+        "timeStamp": "1713498181",
+        "hash": "0x26d2f8325ae0f6c14004d5598665c3ca9bfdae45bb14e1958c6e3b810daffdcc",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "88569",
+        "txreceipt_status": "1",
+        "gasUsed": "87638"
+      }
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -217,7 +290,7 @@ Returns up to a maximum of the last 10000 transactions only
 https://api.btrscan.com/scan/api
 ?module=account
 &action=txlistinternal
-&txhash=0x211beec218f9a19ba3acb440ecacbcd7d5bb1dfad7f591e24ffc999efb7f9d69
+&txhash=0x26d2f8325ae0f6c14004d5598665c3ca9bfdae45bb14e1958c6e3b810daffdcc
 ```
 
 <Tabs>
@@ -231,12 +304,46 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-     (Returned 'isError' values: 0=Ok, 1=Rejected/Cancelled)
 
-
-
+  Sample Response
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+        "blockNumber": "407184",
+        "timeStamp": "1713498181",
+        "hash": "0x26d2f8325ae0f6c14004d5598665c3ca9bfdae45bb14e1958c6e3b810daffdcc",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "88569",
+        "txreceipt_status": "1",
+        "gasUsed": "87638"
+      },
+      {
+        "blockNumber": "407184",
+        "timeStamp": "1713498181",
+        "hash": "0x26d2f8325ae0f6c14004d5598665c3ca9bfdae45bb14e1958c6e3b810daffdcc",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "88569",
+        "txreceipt_status": "1",
+        "gasUsed": "87638"
+      },
+      {
+        "blockNumber": "407184",
+        "timeStamp": "1713498181",
+        "hash": "0x26d2f8325ae0f6c14004d5598665c3ca9bfdae45bb14e1958c6e3b810daffdcc",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "88569",
+        "txreceipt_status": "1",
+        "gasUsed": "87638"
+      }
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -275,12 +382,47 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-     (Returned 'isError' values: 0=Ok, 1=Rejected/Cancelled)
 
+  Sample Response
 
-
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+        "blockNumber": "54",
+        "timeStamp": "1712276791",
+        "hash": "0xc8677f3a367398281281ad5ca68eef04ad748fa5247e850b9a3cc8b2d5b0235f",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "1375843",
+        "txreceipt_status": "1",
+        "gasUsed": "1363852"
+      },
+      {
+        "blockNumber": "60",
+        "timeStamp": "1712276809",
+        "hash": "0xa3d0f682c5cfbd9f4ee51d2537bab358cb225613e29d38e5c2273eb9b697d6c6",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "1349229",
+        "txreceipt_status": "1",
+        "gasUsed": "1337447"
+      },
+      {
+        "blockNumber": "65",
+        "timeStamp": "1712276824",
+        "hash": "0x1088b907507f0b8fc1004b01c68087adcc9a5c275b1664fd1b5bc5bb2bd71e51",
+        "transactionIndex": "0",
+        "value": "0",
+        "gas": "577485",
+        "txreceipt_status": "1",
+        "gasUsed": "571780"
+      }
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -298,7 +440,7 @@ Returns up to a maximum of the last 10000 transactions only
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokentx
-&address=0xab40fe1dae842b209599269b8dafb0c54a743438
+&address=0x718e5b4f5b007bceb7ad6ce8c2629cea767fc4ec
 &startblock=0
 &endblock=999999999
 &sort=asc
@@ -314,7 +456,7 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokentx
-&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438
+&contractaddress=0xfe9f969faf8ad72a83b761138bf25de87eff9dd2
 &page=1
 &offset=100
 &sort=asc
@@ -330,8 +472,8 @@ or
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokentx
-&contractaddress=0xab40fe1dae842b209599269b8dafb0c54a743438
-&address=0xab40fe1dae842b209599269b8dafb0c54a743438
+&contractaddress=0xfe9f969faf8ad72a83b761138bf25de87eff9dd2
+&address=0x718e5b4f5b007bceb7ad6ce8c2629cea767fc4ec
 &page=1
 &offset=100
 &sort=asc
@@ -354,10 +496,56 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      (Returned 'isError' values: 0=No Error, 1=Got Error)
-      
+
+  Sample Response
+   ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+        "blockNumber": "549641",
+        "timeStamp": "1713925552",
+        "hash": "0x8c61a31425cece813e512578358aaff625b5fc25a6a1c59380cdddd5278a9ea2",
+        "nonce": "1",
+        "blockHash": "0x1b3a6f75b3e44af80a846a895778317fe31edc1c84cb9bfb08898f429ea4ca03",
+        "from": "0x718e5b4f5b007bceb7ad6ce8c2629cea767fc4ec",
+        "contractAddress": "0xfe9f969faf8ad72a83b761138bf25de87eff9dd2",
+        "to": "0x25ab3efd52e6470681ce037cd546dc60726948d3",
+        "value": "2107000",
+        "tokenName": "Tether USD",
+        "tokenSymbol": "USDT",
+        "transactionIndex": "0",
+        "gas": "107806",
+        "gasPrice": "125000009",
+        "gasUsed": "101193",
+        "cumulativeGasUsed": "0",
+        "input": "deprecated",
+        "confirmations": "8236"
+      },
+      {
+        "blockNumber": "492201",
+        "timeStamp": "1713753232",
+        "hash": "0x172f945ea91da4e92979c2a85388151f211c1ac40aa3e21f61233bdf6c8c0232",
+        "nonce": "32",
+        "blockHash": "0x5ecacd9d0f8e7f843908db85add0cbd5a6e9ba12e7a6bd4df519ceeab0b4eb06",
+        "from": "0x25ab3efd52e6470681ce037cd546dc60726948d3",
+        "contractAddress": "0xfe9f969faf8ad72a83b761138bf25de87eff9dd2",
+        "to": "0x718e5b4f5b007bceb7ad6ce8c2629cea767fc4ec",
+        "value": "2107000",
+        "tokenName": "Tether USD",
+        "tokenSymbol": "USDT",
+        "transactionIndex": "0",
+        "gas": "153436",
+        "gasPrice": "105000007",
+        "gasUsed": "125699",
+        "cumulativeGasUsed": "0",
+        "input": "deprecated",
+        "confirmations": "65676"
+      }
+    ]
+  }
+  ```    
 
   </TabItem>
 </Tabs>
@@ -432,11 +620,18 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      (Returned 'isError' values: 0=No Error, 1=Got Error)
-      
 
+  Sample Response
+      
+  ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -479,10 +674,36 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
-      
-      (Returned 'isError' values: 0=No Error, 1=Got Error)
-      
+  
+  Sample Response
 
+   ```json
+  {  
+    "status":"1",
+    "message":"OK",
+    "result":[
+      {
+        "blockNumber": "558445",
+        "timeStamp": "1713951964",
+        "blockReward": "0"
+      },
+      {
+        "blockNumber": "558444",
+        "timeStamp": "1713951961",
+        "blockReward": "0"
+      },
+      {
+        "blockNumber": "558443",
+        "timeStamp": "1713951958",
+        "blockReward": "0"
+      },
+      {
+        "blockNumber": "558442",
+        "timeStamp": "1713951955",
+        "blockReward": "0"
+      }
+    ]
+  }
+  ```
   </TabItem>
 </Tabs>

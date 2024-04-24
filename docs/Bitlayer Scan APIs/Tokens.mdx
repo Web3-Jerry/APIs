@@ -27,12 +27,18 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
+
     Sample Response
-      
-     (Returned 'isError' values: 0=Ok, 1=Rejected/Cancelled)
 
-
-
+    ```json
+    {
+      "status": "1",
+      "message": "OK",
+      "result": {
+        "result": "0"
+      }
+    }
+    ```
   </TabItem>
 </Tabs>
 
@@ -45,7 +51,8 @@ https://api-testnet.bitlayer.org/scan/api
 ?module=account
 &action=tokenbalance
 &contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56
-&address=0x89e73303049ee32919903c09e8de5629b84f59eb&tag=latest
+&address=0x89e73303049ee32919903c09e8de5629b84f59eb
+&tag=latest
 ```
 
 <Tabs>
@@ -61,12 +68,16 @@ https://api-testnet.bitlayer.org/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
+
     Sample Response
-      
-     (Returned 'isError' values: 0=Ok, 1=Rejected/Cancelled)
 
-
-
+    ```json
+    {
+      "status": "1",
+      "message": "OK",
+      "result": ""
+    }
+    ```
   </TabItem>
 </Tabs>
 
