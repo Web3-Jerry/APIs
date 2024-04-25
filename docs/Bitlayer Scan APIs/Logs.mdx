@@ -12,9 +12,9 @@ Get Event Logs from block number 403200 to 403205 Block, where log address = 0xa
 https://api.btrscan.com/scan/api
 ?module=logs
 &action=getLogs
-&address=0xab40fe1dae842b209599269b8dafb0c54a743438
-&fromBlock=403200
-&toBlock=403205
+&address=0x42857b399adba34b75d6bedcacde75c7784e87c6
+&fromBlock=585180
+&toBlock=585189
 ```
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -35,7 +35,26 @@ https://api.btrscan.com/scan/api
   {
     "status": "1",
     "message": "OK",
-    "result": []
+    "result": [
+      {
+        "address": "0x42857b399adba34b75d6bedcacde75c7784e87c6",
+        "topics": [
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+        "0xfabf3909f1b538697092793867e2118600b63b14fa641bb49f83a02b18d47f0d",
+        "0x0000000000000000000000003528c7b21cd34fe32cdda2806cb2e18a4659e8c1",
+        "0x0000000000000000000000005798c0c8cc396da77aaa68c0722b70926f98946c"
+        ],
+        "data": "0x",
+        "blockNumber": "0x8ede2",
+        "blockHash": "0xfd7f02f18b6c82c765c57b9817438c93a80238b71942d58c7e3219c9a688b5c1",
+        "timeStamp": "0x662a0e3b",
+        "gasPrice": "0x59682f07",
+        "gasUsed": "0xc8e1",
+        "logIndex": "0x0",
+        "transactionHash": "0xc914f58fafbad9ba2197cfb706c1e93ab20860de4d3fd17c8b0ae396dc8862c1",
+        "transactionIndex": "0x0"
+      }
+    ]
   }
   ```
   </TabItem>
@@ -66,8 +85,8 @@ https://api.btrscan.com/scan/api
 ?module=logs
 &action=logs
 &address=0xe561479bebee0e606c19bb1973fc4761613e3c42
-&fromBlock=4993830
-&toBlock=4993832
+&fromBlock=585180
+&toBlock=585189
 &topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
 &topic0_1_opr=and
 &topic1=0x000000000000000000000000730e2065b9daee84c3003c05bf6d2b3a08e55667

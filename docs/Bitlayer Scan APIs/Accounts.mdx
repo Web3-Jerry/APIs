@@ -564,7 +564,7 @@ Returns up to a maximum of the last 10000 transactions only
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokennfttx
-&address=0x6975be450864c02b4613023c2152ee0743572325
+&address=0xfec8a6cfacbf3da3e0c9988d59542eb6a5d49184
 &startblock=0
 &endblock=999999999
 &sort=asc
@@ -580,7 +580,7 @@ To get paginated results use `page=<page number>` and `offset=<max records to re
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokennfttx
-&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d
+&contractaddress=0x963c039406f8b10d3a0691328b4d2ae90fa43230
 &page=1
 &offset=100
 &sort=asc
@@ -596,8 +596,8 @@ or
 https://api.btrscan.com/scan/api
 ?module=account
 &action=tokennfttx
-&contractaddress=0x06012c8cf97bead5deae237070f9587f8e7a266d
-&address=0x6975be450864c02b4613023c2152ee0743572325
+&contractaddress=0x963c039406f8b10d3a0691328b4d2ae90fa43230
+&address=0xfec8a6cfacbf3da3e0c9988d59542eb6a5d49184
 &page=1
 &offset=100
 &sort=asc
@@ -628,7 +628,48 @@ https://api.btrscan.com/scan/api
     "status":"1",
     "message":"OK",
     "result":[
-
+      {
+        "blockNumber": "557453",
+        "timeStamp": "1713948988",
+        "hash": "0x9aa7501ca38b9984d6fd67ee65b44122ddb1523d7f1ea64d0dfdecd078fefb9e",
+        "nonce": "33",
+        "blockHash": "0x818173cb7faafda18f32e1418d880f475ec66967b308078254fbd008b3e82217",
+        "from": "0xfec8a6cfacbf3da3e0c9988d59542eb6a5d49184",
+        "contractAddress": "0x963c039406f8b10d3a0691328b4d2ae90fa43230",
+        "to": "0xbd24dcaa72e661ecc948a654437dafa1a6384e90",
+        "tokenID": "65001055500330754286618552158997555046548672384952399608215284533236886254591",
+        "tokenName": ".btr(XNAME on Bitlayer)",
+        "tokenSymbol": "XNAME",
+        "tokenDecimal": "0",
+        "transactionIndex": "0",
+        "gas": "520481",
+        "gasPrice": "100000007",
+        "gasUsed": "476443",
+        "cumulativeGasUsed": "0",
+        "input": "deprecated",
+        "confirmations": "28002"
+      },
+      {
+        "blockNumber": "557453",
+        "timeStamp": "1713948988",
+        "hash": "0x9aa7501ca38b9984d6fd67ee65b44122ddb1523d7f1ea64d0dfdecd078fefb9e",
+        "nonce": "33",
+        "blockHash": "0x818173cb7faafda18f32e1418d880f475ec66967b308078254fbd008b3e82217",
+        "from": "0x0000000000000000000000000000000000000000",
+        "contractAddress": "0x963c039406f8b10d3a0691328b4d2ae90fa43230",
+        "to": "0xfec8a6cfacbf3da3e0c9988d59542eb6a5d49184",
+        "tokenID": "65001055500330754286618552158997555046548672384952399608215284533236886254591",
+        "tokenName": ".btr(XNAME on Bitlayer)",
+        "tokenSymbol": "XNAME",
+        "tokenDecimal": "0",
+        "transactionIndex": "0",
+        "gas": "520481",
+        "gasPrice": "100000007",
+        "gasUsed": "476443",
+        "cumulativeGasUsed": "0",
+        "input": "deprecated",
+        "confirmations": "28002"
+      }
     ]
   }
   ```
