@@ -35,6 +35,12 @@ https://api.btrscan.com/scan/api
     {
       "status": "1",
       "message": "OK",
+      "result": {
+        "blockNumber": "426364",
+        "timeStamp": "1713555721",
+        "blockMiner": "0x12a95f3c32e400129c7970f5d490152ad24dd869",
+        "blockReward": "0.000000000000000000"
+      }
     }
   ```
   </TabItem>
@@ -63,11 +69,14 @@ https://api.btrscan.com/scan/api
     
   </TabItem>
   <TabItem value="response" label="Response">
-    Sample Response
+
+  Sample Response
       
-     (Returned 'isError' values: 0=Ok, 1=Rejected/Cancelled)
-
-
-
+  ```json
+    {
+      "status": "1",
+      "message": "OK",
+    }
+  ```
   </TabItem>
 </Tabs>

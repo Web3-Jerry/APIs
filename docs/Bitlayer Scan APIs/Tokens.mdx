@@ -13,7 +13,7 @@ Returns the current amount of an ERC-20 token in circulation.
 https://api.btrscan.com/scan/api
 ?module=token
 &action=tokensupply
-&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56
+&contractaddress=0xfe9f969faf8ad72a83b761138bf25de87eff9dd2
 ```
 
 <Tabs>
@@ -28,17 +28,15 @@ https://api.btrscan.com/scan/api
   </TabItem>
   <TabItem value="response" label="Response">
 
-    Sample Response
+  Sample Response
 
-    ```json
-    {
-      "status": "1",
-      "message": "OK",
-      "result": {
-        "result": "0"
-      }
-    }
-    ```
+  ```json
+  {
+    "status": "1",
+    "message": "OK",
+    "result": "20000000000"
+  }
+  ```
   </TabItem>
 </Tabs>
 
@@ -47,11 +45,11 @@ https://api.btrscan.com/scan/api
 Returns the current balance of an ERC-20 token of an address.
 
 ```json
-https://api-testnet.bitlayer.org/scan/api
+https://api.btrscan.com/scan/api
 ?module=account
 &action=tokenbalance
-&contractaddress=0xe9e7cea3dedca5984780bafc599bd69add087d56
-&address=0x89e73303049ee32919903c09e8de5629b84f59eb
+&contractaddress=0xfe9f969faf8ad72a83b761138bf25de87eff9dd2
+&address=0x718e5b4f5b007bceb7ad6ce8c2629cea767fc4ec
 &tag=latest
 ```
 
@@ -69,15 +67,15 @@ https://api-testnet.bitlayer.org/scan/api
   </TabItem>
   <TabItem value="response" label="Response">
 
-    Sample Response
+  Sample Response
 
-    ```json
-    {
-      "status": "1",
-      "message": "OK",
-      "result": ""
-    }
-    ```
+  ```json
+  {
+    "status": "1",
+    "message": "OK",
+    "result": 0
+  }
+  ```
   </TabItem>
 </Tabs>
 
